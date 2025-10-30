@@ -136,7 +136,7 @@ class DNS implements API
 
     public function updateRecordDetails(string $zoneID, string $recordID, array $details): \stdClass
     {
-        $response = $this->adapter->put('zones/' . $zoneID . '/dns_records/' . $recordID, $details);
+        $response = $this->adapter->patch('zones/' . $zoneID . '/dns_records/' . $recordID, $details);
         $this->body = json_decode($response->getBody());
         return $this->body;
     }
